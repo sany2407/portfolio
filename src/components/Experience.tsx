@@ -1,102 +1,107 @@
-// components/Experience.tsx
-
 import React from "react";
+import { Timeline } from "@/components/ui/timeline";
 
-const Experience: React.FC = () => {
+const Experience = () => {
+  const data = [
+    {
+      title: "2023 - Present",
+      content: (
+        <div>
+          <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
+            <h3 className="text-2xl font-bold text-white mb-2">Senior Full Stack Developer</h3>
+            <h4 className="text-blue-400 mb-4">Tech Innovators Inc.</h4>
+            <p className="text-neutral-300 text-sm mb-6">
+              Led the development of scalable web applications and mentored junior developers while implementing best practices and modern technologies.
+            </p>
+            <div className="space-y-2 text-neutral-400 text-sm">
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Architected and developed enterprise-level applications using Next.js and Node.js</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Implemented CI/CD pipelines and automated testing procedures</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Reduced application load time by 40% through performance optimization</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2021 - 2023",
+      content: (
+        <div>
+          <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
+            <h3 className="text-2xl font-bold text-white mb-2">Full Stack Developer</h3>
+            <h4 className="text-blue-400 mb-4">Digital Solutions Co.</h4>
+            <p className="text-neutral-300 text-sm mb-6">
+              Developed and maintained multiple client projects while focusing on code quality and user experience.
+            </p>
+            <div className="space-y-2 text-neutral-400 text-sm">
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Built responsive web applications using React and TypeScript</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Designed and implemented RESTful APIs using Node.js and Express</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Integrated third-party services and maintained documentation</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      ),
+    },
+    {
+      title: "2019 - 2021",
+      content: (
+        <div>
+          <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
+            <h3 className="text-2xl font-bold text-white mb-2">Frontend Developer</h3>
+            <h4 className="text-blue-400 mb-4">Web Creators Ltd.</h4>
+            <p className="text-neutral-300 text-sm mb-6">
+              Specialized in creating engaging user interfaces and implementing modern web technologies.
+            </p>
+            <div className="space-y-2 text-neutral-400 text-sm">
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Developed and maintained client websites using React and Next.js</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Collaborated with designers to implement pixel-perfect interfaces</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>Improved site performance and accessibility standards</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="mt-8 flex flex-wrap gap-2">
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">React</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Next.js</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">TypeScript</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Node.js</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Express</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">MongoDB</span>
+          </div>
+        </div>
+      ),
+    }
+  ];
+
   return (
-    <section id="experience" className="py-20 bg-neutral-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate__animated animate__fadeIn">
-          <h2 className="text-4xl font-bold text-white mb-4">Professional Experience</h2>
-          <p className="text-gray-400 text-xl">My journey in software development</p>
-        </div>
-
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-blue-500/30"></div>
-
-          {/* Experience Items */}
-          <div className="space-y-16">
-            {/* Experience 1 */}
-            <div className="relative animate__animated animate__fadeInLeft">
-              <div className="flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-              </div>
-              <div className="ml-auto w-1/2 pr-8">
-                <div className="bg-neutral-800 p-6 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-2xl font-bold text-white">Senior Full Stack Developer</h3>
-                    <span className="text-blue-500">2022 - Present</span>
-                  </div>
-                  <h4 className="text-lg text-blue-400 mb-4">Tech Innovators Inc.</h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Led development of low-code platform solutions</li>
-                    <li>• Architected scalable MERN stack applications</li>
-                    <li>• Mentored junior developers and conducted code reviews</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Experience 2 */}
-            <div className="relative animate__animated animate__fadeInRight">
-              <div className="flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-              </div>
-              <div className="mr-auto w-1/2 pl-8">
-                <div className="bg-neutral-800 p-6 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-2xl font-bold text-white">Full Stack Developer</h3>
-                    <span className="text-blue-500">2020 - 2022</span>
-                  </div>
-                  <h4 className="text-lg text-blue-400 mb-4">Digital Solutions Co.</h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Developed and maintained Next.js applications</li>
-                    <li>• Implemented RESTful APIs using Node.js</li>
-                    <li>• Optimized application performance and user experience</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-
-            {/* Experience 3 */}
-            <div className="relative animate__animated animate__fadeInLeft">
-              <div className="flex items-center justify-center absolute left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="w-4 h-4 rounded-full bg-blue-500"></div>
-              </div>
-              <div className="ml-auto w-1/2 pr-8">
-                <div className="bg-neutral-800 p-6 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all">
-                  <div className="flex justify-between items-center mb-4">
-                    <h3 className="text-2xl font-bold text-white">Frontend Developer</h3>
-                    <span className="text-blue-500">2018 - 2020</span>
-                  </div>
-                  <h4 className="text-lg text-blue-400 mb-4">Web Creators Ltd.</h4>
-                  <ul className="text-gray-300 space-y-2">
-                    <li>• Built responsive web applications using React</li>
-                    <li>• Collaborated with UI/UX designers</li>
-                    <li>• Integrated third-party APIs and services</li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Skills Tags */}
-        <div className="mt-20">
-          <div className="flex flex-wrap justify-center gap-4 animate__animated animate__fadeInUp">
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">React.js</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">Next.js</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">Node.js</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">Express.js</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">MongoDB</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">TypeScript</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">REST APIs</span>
-            <span className="px-4 py-2 bg-neutral-800 text-blue-400 rounded-full border border-neutral-700">Low Code</span>
-          </div>
-        </div>
-      </div>
-    </section>
+    <div className="w-full">
+      <Timeline data={data} />
+    </div>
   );
 };
 

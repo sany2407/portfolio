@@ -23,7 +23,7 @@ const Projects: React.FC = () => {
                 translateZ="50"
                 className="text-xl font-bold text-blue-500 dark:text-white"
               >
-                Low-Code Platform Builder
+                CareerMatch
               </CardItem>
               <CardItem
                 as="p"
@@ -104,7 +104,7 @@ const Projects: React.FC = () => {
                   as={Link}
                   href="https://example.com/demo"
                   target="_blank"
-                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                  className="px-4 py-2 rounded-xl  bg-black dark:bg-white dark:text-black text-white text-xs font-bold "
                 >
                   Live Demo
                 </CardItem>
