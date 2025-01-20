@@ -1,16 +1,40 @@
 import React from 'react';
+import {
+  Code2,
+  Github,
+  Terminal,
+  Box,
+  Code,
+  Layers,
+  Palette,
+  FileType,
+  Database,
+  Server,
+  Container,
+  Cloud,
+  Rocket,
+  GitBranch
+} from 'lucide-react';
 
 interface ToolCategory {
   title: string;
-  items: string[];
+  items: Array<{
+    name: string;
+    icon: React.ReactNode;
+  }>;
   icon: React.ReactNode;
 }
 
-const Tools: React.FC = () => {
+const Tools = () => {
   const tools: ToolCategory[] = [
     {
       title: 'Development',
-      items: ['VS Code', 'Git', 'GitHub', 'Terminal'],
+      items: [
+        { name: 'VS Code', icon: <Code2 size={32} /> },
+        { name: 'Git', icon: <GitBranch size={32} /> },
+        { name: 'GitHub', icon: <Github size={32} /> },
+        { name: 'Terminal', icon: <Terminal size={32} /> }
+      ],
       icon: (
         <svg
           className="w-6 h-6 mr-2 text-blue-500"
@@ -29,7 +53,12 @@ const Tools: React.FC = () => {
     },
     {
       title: 'Frontend',
-      items: ['React.js', 'Next.js', 'Tailwind CSS', 'TypeScript'],
+      items: [
+        { name: 'React.js', icon: <Code size={32} /> },
+        { name: 'Next.js', icon: <Box size={32} /> },
+        { name: 'Tailwind CSS', icon: <Palette size={32} /> },
+        { name: 'TypeScript', icon: <FileType size={32} /> }
+      ],
       icon: (
         <svg
           className="w-6 h-6 mr-2 text-blue-500"
@@ -48,7 +77,12 @@ const Tools: React.FC = () => {
     },
     {
       title: 'Backend',
-      items: ['Node.js', 'Express.js', 'MongoDB', 'REST APIs'],
+      items: [
+        { name: 'Node.js', icon: <Server size={32} /> },
+        { name: 'Express.js', icon: <Layers size={32} /> },
+        { name: 'MongoDB', icon: <Database size={32} /> },
+        { name: 'REST APIs', icon: <Code2 size={32} /> }
+      ],
       icon: (
         <svg
           className="w-6 h-6 mr-2 text-blue-500"
@@ -67,7 +101,12 @@ const Tools: React.FC = () => {
     },
     {
       title: 'DevOps',
-      items: ['Docker', 'AWS', 'Vercel', 'CI/CD'],
+      items: [
+        { name: 'Docker', icon: <Container size={32} /> },
+        { name: 'AWS', icon: <Cloud size={32} /> },
+        { name: 'Vercel', icon: <Rocket size={32} /> },
+        { name: 'CI/CD', icon: <GitBranch size={32} /> }
+      ],
       icon: (
         <svg
           className="w-6 h-6 mr-2 text-blue-500"
@@ -95,7 +134,6 @@ const Tools: React.FC = () => {
   return (
     <section id="tools" className="py-20 bg-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Tools & Technologies</h2>
           <p className="text-gray-400 text-xl">
@@ -103,7 +141,6 @@ const Tools: React.FC = () => {
           </p>
         </div>
 
-        {/* Tools Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
           {tools.map((tool, index) => (
             <div
@@ -114,19 +151,22 @@ const Tools: React.FC = () => {
                 {tool.icon}
                 {tool.title}
               </h3>
-              <ul className="space-y-3 text-gray-300">
+              <div className="grid grid-cols-2 gap-4">
                 {tool.items.map((item, idx) => (
-                  <li key={idx} className="flex items-center">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mr-2"></span>
-                    {item}
-                  </li>
+                  <div key={idx} className="relative group">
+                    <div className="flex items-center justify-center text-gray-300 hover:text-blue-500 transition-colors">
+                      {item.icon}
+                      <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-neutral-700 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
+                        {item.name}
+                      </span>
+                    </div>
+                  </div>
                 ))}
-              </ul>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* Footer Text */}
         <div className="mt-16 text-center">
           <p className="text-gray-400">
             Always exploring new technologies and tools to improve development workflow and
