@@ -24,10 +24,10 @@ export default function Hero() {
           className="space-y-6"
         >
           <div className="space-y-2">
-            <h2 className="text-2xl text-white font-medium">Hello, It's Me</h2>
-            <h1 className="text-5xl sm:text-6xl font-bold text-white">John Kendric</h1>
-            <p className="text-2xl sm:text-3xl">
-              And I'm a <span className="text-blue-500 font-medium">Frontend Developer</span>
+            <h2 className="text-2xl text-white font-medium">Hello, It&apos;s Me</h2>
+            <h1 className="text-5xl sm:text-6xl font-bold text-white">John Wick</h1>
+            <p className="text-2xl sm:text-3xl text-blue-500">
+              And I&apos;m a <span className="text-blue-500 font-medium">Frontend Developer</span>
             </p>
           </div>
 
@@ -73,9 +73,9 @@ export default function Hero() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="w-full h-full relative">
                 <div className="absolute inset-0 bg-blue-500 opacity-20 blur-2xl" />
-                <svg viewBox="0 0 100 100" className="w-full h-full fill-none">
+                <svg viewBox="0 0 90 100" className="w-full h-full fill-none">
                   <polygon
-                    points="50 0, 93.3 25, 93.3 75, 50 100, 6.7 75, 6.7 25"
+                    points="50 3, 93.3 25, 93.3 75, 50 98, 6.7 75, 6.7 25"
                     className="stroke-blue-500 stroke-2"
                   />
                 </svg>
@@ -83,12 +83,13 @@ export default function Hero() {
             </div>
 
             {/* Image */}
-            <div className="absolute inset-[10%] overflow-hidden">
+            <div className="absolute inset-[1%] overflow-hidden pr-20 pt-20">
               <Image
-src={me}                alt="Profile"
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                src={me}                  
+                alt="Profile"
+                objectFit="cover"
+                className=" transition-all duration-300"
+                quality={100}
               />
             </div>
           </div>

@@ -2,7 +2,6 @@
 import Header from '@/components/Header'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
-import Expertise from '@/components/Expertise'
 import Projects from '@/components/Projects'
 import Experience from '@/components/Experience'
 import Tools from '@/components/Tools'
@@ -18,7 +17,6 @@ export default function Home() {
       <main>
         <About />
         <Hero />
-        <Expertise />
         <Projects />
         <Experience />
         <Tools />

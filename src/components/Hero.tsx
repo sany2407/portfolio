@@ -1,14 +1,15 @@
-"use client"
-import type React from "react"
-import { ContainerScroll } from "@/components/ui/container-scroll-animation"
+"use client";
+import type React from "react";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 
 const Hero: React.FC = () => {
   return (
     <section className="w-full bg-neutral-900">
       <ContainerScroll
         titleComponent={
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-10">
-            Full Stack Developer <span className="text-blue-500">&amp;</span> Low Code Expert
+          <h1 className="text-4xl md:text-6xl font-bold text-white mb-20">
+            Full Stack Developer <span className="text-blue-500">&amp;</span>{" "}
+            Low Code Expert
           </h1>
         }
       >
@@ -26,7 +27,8 @@ const Hero: React.FC = () => {
           <div className="h-full pt-12 px-8 flex flex-col justify-center items-center">
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-xl text-gray-800 mb-8">
-                Specialized in MERN Stack, Next.js, and building efficient low-code solutions.
+                Specialized in MERN Stack, Next.js, and building efficient
+                low-code solutions.
               </p>
               <div className="flex gap-4 justify-center">
                 <a
@@ -43,7 +45,6 @@ const Hero: React.FC = () => {
                 </a>
               </div>
             </div>
-
             <div className="mt-12 w-full max-w-2xl">
               <pre className="text-gray-300 bg-[#1E1E1E] p-6 rounded-lg">
                 <code>
@@ -60,7 +61,7 @@ const Hero: React.FC = () => {
         </div>
       </ContainerScroll>
     </section>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;
