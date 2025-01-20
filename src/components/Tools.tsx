@@ -1,164 +1,263 @@
-import React from 'react';
-import {
-  Code2,
-  Github,
-  Terminal,
-  Box,
-  Code,
-  Layers,
-  Palette,
-  FileType,
-  Database,
-  Server,
-  Container,
-  Cloud,
-  Rocket,
-  GitBranch
-} from 'lucide-react';
+"use client"
 
-interface ToolCategory {
-  title: string;
-  items: Array<{
-    name: string;
-    icon: React.ReactNode;
-  }>;
-  icon: React.ReactNode;
+import React from "react"
+import Image from "next/image"
+import type { StaticImageData } from "next/image"
+
+// Import images with exact names as provided
+import nextjs from "../../public/assets/nextjs.png"
+import laravel from "../../public/assets/Laravel.png"
+import mysql from "../../public/assets/MySQL-Logo.png"
+import vercel from "../../public/assets/apple-touch-icon-256x256.png"
+import clickup from "../../public/assets/clickup.png"
+import expressjs from "../../public/assets/expressjs.png"
+import figma from "../../public/assets/figma.png"
+import flutterflow from "../../public/assets/flutterflow.png"
+import git from "../../public/assets/git.png"
+import github from "../../public/assets/github.png"
+import mongodb from "../../public/assets/mongodb.png"
+import miro from "../../public/assets/miro.png"
+import nodejs from "../../public/assets/nodejs-logo.png"
+import postman from "../../public/assets/postman.png"
+import slack from "../../public/assets/slack.png"
+import redux from "../../public/assets/redux.png"
+import swagger from "../../public/assets/swagger.png"
+import tailwind from "../../public/assets/tailwind-css.png"
+import reactjs from "../../public/assets/teactjs.png"
+import trello from "../../public/assets/trello.png"
+import ts from "../../public/assets/ts.png"
+import vsCode from "../../public/assets/vs-code.png"
+import xampp from "../../public/assets/xampp.png"
+
+interface Category {
+  title: string
+  titleIcon: StaticImageData
+  sections: Array<{
+    name: string
+    items: Array<{
+      name: string
+      icon: StaticImageData
+    }>
+  }>
 }
 
 const Tools = () => {
-  const tools: ToolCategory[] = [
+  const [isLoading, setIsLoading] = React.useState(true)
+
+  React.useEffect(() => {
+    const timer = setTimeout(() => setIsLoading(false), 1000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const categories: Category[] = [
     {
-      title: 'Development',
-      items: [
-        { name: 'VS Code', icon: <Code2 size={32} /> },
-        { name: 'Git', icon: <GitBranch size={32} /> },
-        { name: 'GitHub', icon: <Github size={32} /> },
-        { name: 'Terminal', icon: <Terminal size={32} /> }
+      title: "Development Tools",
+      titleIcon: vsCode,
+      sections: [
+        {
+          name: "Code & Version Control",
+          items: [
+            { name: "VS Code", icon: vsCode },
+            { name: "Git", icon: git },
+            { name: "GitHub", icon: github },
+          ],
+        },
+        {
+          name: "Testing & API",
+          items: [
+            { name: "Postman", icon: postman },
+            { name: "Swagger", icon: swagger },
+          ],
+        },
+        {
+          name: "Planning & Collaboration",
+          items: [
+            { name: "Trello", icon: trello },
+            { name: "ClickUp", icon: clickup },
+            { name: "Miro", icon: miro },
+            { name: "Slack", icon: slack },
+            { name: "Figma", icon: figma },
+          ],
+        },
+        {
+          name: "Deployment & Services",
+          items: [
+            { name: "Vercel", icon: vercel },
+            { name: "XAMPP", icon: xampp },
+          ],
+        },
       ],
-      icon: (
-        <svg
-          className="w-6 h-6 mr-2 text-blue-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
-          />
-        </svg>
-      ),
     },
     {
-      title: 'Frontend',
-      items: [
-        { name: 'React.js', icon: <Code size={32} /> },
-        { name: 'Next.js', icon: <Box size={32} /> },
-        { name: 'Tailwind CSS', icon: <Palette size={32} /> },
-        { name: 'TypeScript', icon: <FileType size={32} /> }
+      title: "Technologies & Frameworks",
+      titleIcon: reactjs,
+      sections: [
+        {
+          name: "Frontend",
+          items: [
+            { name: "React.js", icon: reactjs },
+            { name: "Next.js", icon: nextjs },
+            { name: "TypeScript", icon: ts },
+            { name: "Tailwind CSS", icon: tailwind },
+            { name: "Redux", icon: redux },
+          ],
+        },
+        {
+          name: "Backend",
+          items: [
+            { name: "Node.js", icon: nodejs },
+            { name: "Express.js", icon: expressjs },
+            { name: "Laravel", icon: laravel },
+          ],
+        },
+        {
+          name: "Databases",
+          items: [
+            { name: "MongoDB", icon: mongodb },
+            { name: "MySQL", icon: mysql },
+          ],
+        },
+        {
+          name: "Development Platforms",
+          items: [{ name: "FlutterFlow", icon: flutterflow }],
+        },
       ],
-      icon: (
-        <svg
-          className="w-6 h-6 mr-2 text-blue-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-          />
-        </svg>
-      ),
     },
-    {
-      title: 'Backend',
-      items: [
-        { name: 'Node.js', icon: <Server size={32} /> },
-        { name: 'Express.js', icon: <Layers size={32} /> },
-        { name: 'MongoDB', icon: <Database size={32} /> },
-        { name: 'REST APIs', icon: <Code2 size={32} /> }
-      ],
-      icon: (
-        <svg
-          className="w-6 h-6 mr-2 text-blue-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"
-          />
-        </svg>
-      ),
-    },
-    {
-      title: 'DevOps',
-      items: [
-        { name: 'Docker', icon: <Container size={32} /> },
-        { name: 'AWS', icon: <Cloud size={32} /> },
-        { name: 'Vercel', icon: <Rocket size={32} /> },
-        { name: 'CI/CD', icon: <GitBranch size={32} /> }
-      ],
-      icon: (
-        <svg
-          className="w-6 h-6 mr-2 text-blue-500"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-          />
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={2}
-            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-          />
-        </svg>
-      ),
-    },
-  ];
+  ]
+
+  if (isLoading) {
+    return (
+      <section className="py-20 bg-neutral-800">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <div className="h-10 w-64 mx-auto mb-4 bg-neutral-700 animate-pulse rounded" />
+            <div className="h-6 w-96 mx-auto bg-neutral-700 animate-pulse rounded" />
+          </div>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[1, 2].map((i) => (
+              <div key={i} className="h-[600px] w-full rounded-xl bg-neutral-700 animate-pulse" />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
 
   return (
     <section id="tools" className="py-20 bg-neutral-800">
+      <style jsx>{`
+        @keyframes fadeInUp {
+          from {
+            opacity: 0;
+            transform: translateY(20px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
+        }
+
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+
+        .animate-fade-in {
+          animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        .stagger-delay > * {
+          opacity: 0;
+        }
+
+        .stagger-delay > *:nth-child(1) { animation-delay: 0.1s; }
+        .stagger-delay > *:nth-child(2) { animation-delay: 0.2s; }
+        .stagger-delay > *:nth-child(3) { animation-delay: 0.3s; }
+        .stagger-delay > *:nth-child(4) { animation-delay: 0.4s; }
+        .stagger-delay > *:nth-child(5) { animation-delay: 0.5s; }
+
+        .tool-card {
+          transition: all 0.3s ease;
+        }
+
+        .tool-card:hover {
+          transform: scale(1.02);
+        }
+
+        .tool-icon {
+          transition: all 0.2s ease;
+        }
+
+        .tool-icon:hover {
+          transform: scale(1.1);
+        }
+
+        .tooltip {
+          transition: all 0.2s ease;
+        }
+
+        .tool-icon:hover .tooltip {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      `}</style>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-4xl font-bold text-white mb-4">Tools & Technologies</h2>
-          <p className="text-gray-400 text-xl">
-            The technologies I work with to bring ideas to life
-          </p>
+          <p className="text-gray-400 text-xl">The technologies I work with to bring ideas to life</p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          {tools.map((tool, index) => (
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 stagger-delay">
+          {categories.map((category, index) => (
             <div
               key={index}
-              className="bg-neutral-900 p-6 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all h-full"
+              className="tool-card bg-neutral-900 p-8 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all h-full animate-fade-in-up"
             >
-              <h3 className="text-xl font-bold text-white mb-6 flex items-center">
-                {tool.icon}
-                {tool.title}
+              <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
+                <div className="relative w-8 h-8 mr-3">
+                  <Image
+                    src={category.titleIcon || "/placeholder.svg"}
+                    alt={category.title}
+                    fill
+                    className="object-contain"
+                    sizes="(max-width: 768px) 24px, 32px"
+                  />
+                </div>
+                {category.title}
               </h3>
-              <div className="grid grid-cols-2 gap-4">
-                {tool.items.map((item, idx) => (
-                  <div key={idx} className="relative group">
-                    <div className="flex items-center justify-center text-gray-300 hover:text-blue-500 transition-colors">
-                      {item.icon}
-                      <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-neutral-700 text-white px-2 py-1 rounded text-sm opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-                        {item.name}
-                      </span>
+
+              <div className="space-y-8 stagger-delay">
+                {category.sections.map((section, sectionIdx) => (
+                  <div key={sectionIdx} className="animate-fade-in">
+                    <h4 className="text-lg font-semibold text-gray-300 mb-4">{section.name}</h4>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
+                      {section.items.map((item, idx) => (
+                        <div key={idx} className="tool-icon relative group" role="img" aria-label={item.name}>
+                          <div className="flex items-center justify-center text-gray-300 hover:text-blue-500 transition-colors">
+                            <div className="relative w-8 h-8">
+                              <Image
+                                src={item.icon || "/placeholder.svg"}
+                                alt={item.name}
+                                fill
+                                className="object-contain"
+                                sizes="(max-width: 768px) 24px, 32px"
+                              />
+                            </div>
+                            <span className="tooltip absolute -top-8 left-1/2 transform -translate-x-1/2 bg-neutral-700 text-white px-2 py-1 rounded text-sm opacity-0 -translate-y-2 whitespace-nowrap">
+                              {item.name}
+                            </span>
+                          </div>
+                        </div>
+                      ))}
                     </div>
                   </div>
                 ))}
@@ -167,15 +266,15 @@ const Tools = () => {
           ))}
         </div>
 
-        <div className="mt-16 text-center">
+        <div className="mt-16 text-center animate-fade-in">
           <p className="text-gray-400">
-            Always exploring new technologies and tools to improve development workflow and
-            efficiency
+            Always exploring new technologies and tools to improve development workflow and efficiency
           </p>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default Tools;
+export default Tools
+
