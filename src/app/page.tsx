@@ -23,7 +23,7 @@ export default function Home() {
         <Testimonials />
         <Blog />
         <Contact />
-      </main>
+      </main> 
       <Footer />
     </>
   )

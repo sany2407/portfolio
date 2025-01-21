@@ -1,7 +1,10 @@
 "use client"
 
-import React from "react"
+import type React from "react"
+import { useState, useEffect } from "react"
 import Image from "next/image"
+import { motion } from "framer-motion"
+import { useInView } from "react-intersection-observer"
 import type { StaticImageData } from "next/image"
 
 // Import images with exact names as provided
@@ -29,113 +32,140 @@ import ts from "../../public/assets/ts.png"
 import vsCode from "../../public/assets/vs-code.png"
 import xampp from "../../public/assets/xampp.png"
 
-interface Category {
-  title: string
-  titleIcon: StaticImageData
-  sections: Array<{
-    name: string
-    items: Array<{
-      name: string
-      icon: StaticImageData
-    }>
-  }>
+interface Item {
+  name: string
+  icon: StaticImageData
+  category: string
 }
 
-const Tools = () => {
-  const [isLoading, setIsLoading] = React.useState(true)
+const tools: Item[] = [
+  { name: "VS Code", icon: vsCode, category: "Development" },
+  { name: "Git", icon: git, category: "Version Control" },
+  { name: "GitHub", icon: github, category: "Version Control" },
+  { name: "Postman", icon: postman, category: "API Testing" },
+  { name: "Swagger", icon: swagger, category: "API Documentation" },
+  { name: "Trello", icon: trello, category: "Project Management" },
+  { name: "ClickUp", icon: clickup, category: "Project Management" },
+  { name: "Miro", icon: miro, category: "Collaboration" },
+  { name: "Slack", icon: slack, category: "Communication" },
+  { name: "Figma", icon: figma, category: "Design" },
+  { name: "Vercel", icon: vercel, category: "Deployment" },
+  { name: "XAMPP", icon: xampp, category: "Development" },
+]
 
-  React.useEffect(() => {
+const languages: Item[] = [
+  { name: "React.js", icon: reactjs, category: "Frontend" },
+  { name: "Next.js", icon: nextjs, category: "Frontend" },
+  { name: "TypeScript", icon: ts, category: "Language" },
+  { name: "Tailwind CSS", icon: tailwind, category: "CSS" },
+  { name: "Redux", icon: redux, category: "State Management" },
+  { name: "Node.js", icon: nodejs, category: "Backend" },
+  { name: "Express.js", icon: expressjs, category: "Backend" },
+  { name: "Laravel", icon: laravel, category: "Backend" },
+  { name: "MongoDB", icon: mongodb, category: "Database" },
+  { name: "MySQL", icon: mysql, category: "Database" },
+  { name: "FlutterFlow", icon: flutterflow, category: "Mobile Development" },
+]
+
+const ItemGrid: React.FC<{ items: Item[]; title: string }> = ({ items, title }) => {
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  })
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.05,
+      },
+    },
+  }
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+      },
+    },
+  }
+
+  return (
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={inView ? "visible" : "hidden"}
+      variants={containerVariants}
+      className="mb-16"
+    >
+      <h2 className="text-3xl font-bold text-white mb-8">{title}</h2>
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        {items.map((item, index) => (
+          <motion.div key={index} className="flex flex-col items-center" variants={itemVariants}>
+            <motion.div
+              className="relative w-20 h-20 mb-4 bg-neutral-800 rounded-lg overflow-hidden"
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 25px rgba(59, 130, 246, 0.5)",
+              }}
+              whileTap={{ scale: 0.95 }}
+            >
+              <Image
+                src={item.icon || "/placeholder.svg"}
+                alt={item.name}
+                fill
+                className="object-contain p-2"
+                sizes="(max-width: 768px) 80px, 80px"
+              />
+              <motion.div
+                className="absolute inset-0 bg-blue-500 opacity-0"
+                animate={{
+                  opacity: [0, 0.2, 0],
+                }}
+                transition={{
+                  duration: 2,
+                  repeat: Number.POSITIVE_INFINITY,
+                  repeatType: "reverse",
+                }}
+              />
+            </motion.div>
+            <h3 className="text-white text-lg font-semibold text-center">{item.name}</h3>
+            <p className="text-gray-400 text-sm text-center">{item.category}</p>
+          </motion.div>
+        ))}
+      </div>
+    </motion.div>
+  )
+}
+
+const Tools: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
     const timer = setTimeout(() => setIsLoading(false), 1000)
     return () => clearTimeout(timer)
   }, [])
-
-  const categories: Category[] = [
-    {
-      title: "Development Tools",
-      titleIcon: vsCode,
-      sections: [
-        {
-          name: "Code & Version Control",
-          items: [
-            { name: "VS Code", icon: vsCode },
-            { name: "Git", icon: git },
-            { name: "GitHub", icon: github },
-          ],
-        },
-        {
-          name: "Testing & API",
-          items: [
-            { name: "Postman", icon: postman },
-            { name: "Swagger", icon: swagger },
-          ],
-        },
-        {
-          name: "Planning & Collaboration",
-          items: [
-            { name: "Trello", icon: trello },
-            { name: "ClickUp", icon: clickup },
-            { name: "Miro", icon: miro },
-            { name: "Slack", icon: slack },
-            { name: "Figma", icon: figma },
-          ],
-        },
-        {
-          name: "Deployment & Services",
-          items: [
-            { name: "Vercel", icon: vercel },
-            { name: "XAMPP", icon: xampp },
-          ],
-        },
-      ],
-    },
-    {
-      title: "Technologies & Frameworks",
-      titleIcon: reactjs,
-      sections: [
-        {
-          name: "Frontend",
-          items: [
-            { name: "React.js", icon: reactjs },
-            { name: "Next.js", icon: nextjs },
-            { name: "TypeScript", icon: ts },
-            { name: "Tailwind CSS", icon: tailwind },
-            { name: "Redux", icon: redux },
-          ],
-        },
-        {
-          name: "Backend",
-          items: [
-            { name: "Node.js", icon: nodejs },
-            { name: "Express.js", icon: expressjs },
-            { name: "Laravel", icon: laravel },
-          ],
-        },
-        {
-          name: "Databases",
-          items: [
-            { name: "MongoDB", icon: mongodb },
-            { name: "MySQL", icon: mysql },
-          ],
-        },
-        {
-          name: "Development Platforms",
-          items: [{ name: "FlutterFlow", icon: flutterflow }],
-        },
-      ],
-    },
-  ]
 
   if (isLoading) {
     return (
       <section className="py-20 bg-neutral-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <div className="h-10 w-64 mx-auto mb-4 bg-neutral-700 animate-pulse rounded" />
-            <div className="h-6 w-96 mx-auto bg-neutral-700 animate-pulse rounded" />
+            <div className="h-10 w-64 mx-auto mb-4 bg-gray-800 animate-pulse rounded" />
+            <div className="h-6 w-96 mx-auto bg-gray-800 animate-pulse rounded" />
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[1, 2].map((i) => (
-              <div key={i} className="h-[600px] w-full rounded-xl bg-neutral-700 animate-pulse" />
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
+            {[...Array(18)].map((_, i) => (
+              <div key={i} className="flex flex-col items-center">
+                <div className="h-20 w-20 mb-4 bg-gray-800 animate-pulse rounded-lg" />
+                <div className="h-4 w-16 bg-gray-800 animate-pulse rounded mb-2" />
+                <div className="h-3 w-12 bg-gray-800 animate-pulse rounded" />
+              </div>
             ))}
           </div>
         </div>
@@ -145,131 +175,17 @@ const Tools = () => {
 
   return (
     <section id="tools" className="py-20 bg-neutral-800">
-      <style jsx>{`
-        @keyframes fadeInUp {
-          from {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-          }
-          to {
-            opacity: 1;
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fadeInUp 0.6s ease-out forwards;
-        }
-
-        .animate-fade-in {
-          animation: fadeIn 0.6s ease-out forwards;
-        }
-
-        .stagger-delay > * {
-          opacity: 0;
-        }
-
-        .stagger-delay > *:nth-child(1) { animation-delay: 0.1s; }
-        .stagger-delay > *:nth-child(2) { animation-delay: 0.2s; }
-        .stagger-delay > *:nth-child(3) { animation-delay: 0.3s; }
-        .stagger-delay > *:nth-child(4) { animation-delay: 0.4s; }
-        .stagger-delay > *:nth-child(5) { animation-delay: 0.5s; }
-
-        .tool-card {
-          transition: all 0.3s ease;
-        }
-
-        .tool-card:hover {
-          transform: scale(1.02);
-        }
-
-        .tool-icon {
-          transition: all 0.2s ease;
-        }
-
-        .tool-icon:hover {
-          transform: scale(1.1);
-        }
-
-        .tooltip {
-          transition: all 0.2s ease;
-        }
-
-        .tool-icon:hover .tooltip {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      `}</style>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl font-bold text-white mb-4">Tools & Technologies</h2>
-          <p className="text-gray-400 text-xl">The technologies I work with to bring ideas to life</p>
+        <div className="text-center mb-16">
+          <h1 className="text-5xl font-bold text-white mb-4">Tools & Technologies</h1>
+          <p className="text-gray-400 text-xl">Crafting digital experiences with these powerful tools and languages</p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 stagger-delay">
-          {categories.map((category, index) => (
-            <div
-              key={index}
-              className="tool-card bg-neutral-900 p-8 rounded-xl border border-neutral-700 hover:border-blue-500 transition-all h-full animate-fade-in-up"
-            >
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-                <div className="relative w-8 h-8 mr-3">
-                  <Image
-                    src={category.titleIcon || "/placeholder.svg"}
-                    alt={category.title}
-                    fill
-                    className="object-contain"
-                    sizes="(max-width: 768px) 24px, 32px"
-                  />
-                </div>
-                {category.title}
-              </h3>
+        <ItemGrid items={tools} title="Development Tools" />
+        <ItemGrid items={languages} title="Languages & Frameworks" />
 
-              <div className="space-y-8 stagger-delay">
-                {category.sections.map((section, sectionIdx) => (
-                  <div key={sectionIdx} className="animate-fade-in">
-                    <h4 className="text-lg font-semibold text-gray-300 mb-4">{section.name}</h4>
-                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                      {section.items.map((item, idx) => (
-                        <div key={idx} className="tool-icon relative group" role="img" aria-label={item.name}>
-                          <div className="flex items-center justify-center text-gray-300 hover:text-blue-500 transition-colors">
-                            <div className="relative w-8 h-8">
-                              <Image
-                                src={item.icon || "/placeholder.svg"}
-                                alt={item.name}
-                                fill
-                                className="object-contain"
-                                sizes="(max-width: 768px) 24px, 32px"
-                              />
-                            </div>
-                            <span className="tooltip absolute -top-8 left-1/2 transform -translate-x-1/2 bg-neutral-700 text-white px-2 py-1 rounded text-sm opacity-0 -translate-y-2 whitespace-nowrap">
-                              {item.name}
-                            </span>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        <div className="mt-16 text-center animate-fade-in">
-          <p className="text-gray-400">
-            Always exploring new technologies and tools to improve development workflow and efficiency
-          </p>
+        <div className="mt-16 text-center">
+          <p className="text-gray-400">Continuously expanding my toolkit to stay at the forefront of web development</p>
         </div>
       </div>
     </section>
