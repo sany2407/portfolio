@@ -23,14 +23,14 @@ const Projects: React.FC = () => {
                 translateZ="50"
                 className="text-xl font-bold text-blue-500 dark:text-white"
               >
-                CareerMatch
+                E-commerce website
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
                 className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime voluptatibus, et laboriosam dignissimos incidunt voluptatem natus cumque minus nisi omnis?
+                A e-commerce website for an entrepreneur to sell palm products, implementing user-friendly navigation, secure payment integration, and a visually appealing design.
               </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
@@ -41,17 +41,17 @@ const Projects: React.FC = () => {
                   alt="thumbnail"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6">
+              <div className="flex justify-center  mt-6">
                 <CardItem
                   translateZ={20}
                   as="a"
-                  href="https://github.com/Sanylearn"
+                  href="https://github.com/kaviyarasan2865/vembar-karupatti.git"
                   target="_blank"
-                  className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
+                  className="px-4 py-2 rounded-xl text-sm font-bold bg-black dark:text-white text-white hover:text-blue-400"
                 >
                   GitHub →
                 </CardItem>
-                <CardItem
+                {/* <CardItem
                   translateZ={20}
                   as="a"
                   href="https://example.com/demo"
@@ -59,7 +59,7 @@ const Projects: React.FC = () => {
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                 >
                   Live Demo
-                </CardItem>
+                </CardItem> */}
               </div>
             </CardBody>
           </CardContainer>
@@ -71,15 +71,14 @@ const Projects: React.FC = () => {
                 translateZ="50"
                 className="text-xl font-bold text-blue-500 dark:text-white"
               >
-                E-commerce 
+                NPM package 
               </CardItem>
               <CardItem
                 as="p"
                 translateZ="60"
                 className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-               Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime voluptatibus, et laboriosam dignissimos incidunt voluptatem natus cumque minus nisi omnis?
-              </CardItem>
+Created an NPM package, "next-auth-kit," that automates the setup of login, signup, and middleware for Next.js projects, streamlining project initialization with a single command.              </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={scene}
@@ -93,7 +92,7 @@ const Projects: React.FC = () => {
                 <CardItem
                   translateZ={20}
                   as="a"
-                  href="https://github.com"
+                  href="https://github.com/kaviyarasan2865/nextjs-auth-kit.git"
                   target="_blank"
                   className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
                 >
@@ -102,11 +101,11 @@ const Projects: React.FC = () => {
                 <CardItem
                   translateZ={20}
                   as="a"
-                  href="https://example.com/demo"
+                  href="https://www.npmjs.com/package/nextjs-auth-kit"
                   target="_blank"
                   className="px-4 py-2 rounded-xl  bg-black dark:bg-white dark:text-black text-white text-xs font-bold "
                 >
-                  Live Demo
+                  Package →
                 </CardItem>
               </div>
             </CardBody>
@@ -119,15 +118,14 @@ const Projects: React.FC = () => {
                 translateZ="50"
                 className="text-xl font-bold text-blue-500 dark:text-white"
               >
-                NPM Package
+               Placement Portal
               </CardItem> 
               <CardItem
                 as="p"
                 translateZ="60"
                 className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime voluptatibus, et laboriosam dignissimos incidunt voluptatem natus cumque minus nisi omnis?
-              </CardItem>
+Developed a campus recruitment web application with features like student registration, job posting, application tracking, and data visualization, enhancing communication and recruitment insights.              </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={scene}
@@ -137,17 +135,17 @@ const Projects: React.FC = () => {
                   alt="thumbnail"
                 />
               </CardItem>
-              <div className="flex justify-between items-center mt-6">
+              <div className="flex justify-center items-center mt-6">
                 <CardItem
                   translateZ={20}
                   as="a"
-                  href="https://github.com"
+                  href="https://github.com/kaviyarasan2865"
                   target="_blank"
-                  className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
+                  className="px-4 py-2 rounded-xl bg-black text-sm font-bold dark:text-white text-white hover:text-blue-400"
                 >
                   GitHub →
                 </CardItem>
-                <CardItem
+                {/* <CardItem
                   translateZ={20}
                   as="a"
                   href="https://example.com/demo"
@@ -155,7 +153,56 @@ const Projects: React.FC = () => {
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
                 >
                   Live Demo
+                </CardItem> */}
+              </div>
+            </CardBody>
+          </CardContainer>
+
+
+          {/* Project 4 */}
+          <CardContainer className="inter-var" style={{ animationDelay: "0.4s" }}>
+            <CardBody className="bg-neutral-900 relative group/card dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1] dark:bg-neutral-900 dark:border-white/[0.2] border-black/[0.1] w-full sm:w-auto rounded-xl p-6 border border-gray-500 hover:border-blue-500">
+              <CardItem
+                translateZ="50"
+                className="text-xl font-bold text-blue-500 dark:text-white"
+              >
+               Farmer Corner
+              </CardItem> 
+              <CardItem
+                as="p"
+                translateZ="60"
+                className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300"
+              >
+Developed a web application enabling farmers to list and manage their products, promoting direct interaction with buyers and eliminating intermediaries for better market access.
+   </CardItem>
+              <CardItem translateZ="100" className="w-full mt-4">
+                <Image
+                  src={scene}
+                  height="1000"
+                  width="1000"
+                  className="h-60 w-full object-cover rounded-xl group-hover/card:shadow-xl"
+                  alt="thumbnail"
+                />
+              </CardItem>
+              <div className="flex justify-center items-center mt-6">
+                <CardItem
+                  translateZ={20}
+                  as="a"
+                  href="https://github.com/kaviyarasan2865/FarmerCorner.git"
+                  target="_blank"
+                  className="px-4 py-2 rounded-xl bg-black text-sm font-bold dark:text-white text-white hover:text-blue-400"
+                >
+                  GitHub →
                 </CardItem>
+                {/* <CardItem
+                  translateZ={20}
+                  as="a"
+                  href="https://example.com/demo"
+                  target="_blank"
+                  className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
+                >
+                  Live Demo
+                </CardItem> */}
               </div>
             </CardBody>
           </CardContainer>
