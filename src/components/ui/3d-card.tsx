@@ -98,8 +98,20 @@ export const CardBody = ({
   );
 };
 
-export const CardItem = <Tag extends React.ElementType = "div">({
-  as: TagComponent = "div",
+type CardItemProps<T extends React.ElementType> = {
+  as?: T;
+  children: React.ReactNode;
+  className?: string;
+  translateX?: number | string;
+  translateY?: number | string;
+  translateZ?: number | string;
+  rotateX?: number | string;
+  rotateY?: number | string;
+  rotateZ?: number | string;
+} & React.ComponentPropsWithoutRef<T>;
+
+export const CardItem = <T extends React.ElementType = "div">({
+  as,
   children,
   className,
   translateX = 0,
@@ -109,17 +121,8 @@ export const CardItem = <Tag extends React.ElementType = "div">({
   rotateY = 0,
   rotateZ = 0,
   ...rest
-}: {
-  as?: Tag;
-  children: React.ReactNode;
-  className?: string;
-  translateX?: number | string;
-  translateY?: number | string;
-  translateZ?: number | string;
-  rotateX?: number | string;
-  rotateY?: number | string;
-  rotateZ?: number | string;
-} & (React.HTMLAttributes<HTMLElement> & (Tag extends "a" ? React.AnchorHTMLAttributes<HTMLAnchorElement> : { [key: string]: unknown }))) => {
+}: CardItemProps<T>) => {
+  const Component = as || "div";
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
@@ -137,17 +140,16 @@ export const CardItem = <Tag extends React.ElementType = "div">({
   }, [isMouseEntered, handleAnimations]);
 
   return (
-    <TagComponent
+    <Component
       ref={ref}
       className={cn("w-fit transition duration-200 ease-linear", className)}
       {...rest}
     >
       {children}
-    </TagComponent>
+    </Component>
   );
 };
 
-// Create a hook to use the context
 export const useMouseEnter = () => {
   const context = useContext(MouseEnterContext);
   if (context === undefined) {
