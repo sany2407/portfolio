@@ -73,7 +73,7 @@ const Experience = () => {
               Express.js
             </span>
             <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-            RESTful API's
+            RESTful API&apos;s 
             </span>
             <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
             Git/GitHub

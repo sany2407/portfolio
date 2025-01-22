@@ -78,7 +78,7 @@ const Projects: React.FC = () => {
                 translateZ="60"
                 className="text-white text-sm max-w-sm mt-2 dark:text-neutral-300"
               >
-Created an NPM package, "next-auth-kit," that automates the setup of login, signup, and middleware for Next.js projects, streamlining project initialization with a single command.              </CardItem>
+Created an NPM package, &quot;next-auth-kit,&quot; that automates the setup of login, signup, and middleware for Next.js projects, streamlining project initialization with a single command.              </CardItem>
               <CardItem translateZ="100" className="w-full mt-4">
                 <Image
                   src={scene}
