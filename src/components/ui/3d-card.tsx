@@ -98,8 +98,8 @@ export const CardBody = ({
   );
 };
 
-export const CardItem = ({
-  as: Tag = "div",
+export const CardItem = <Tag extends React.ElementType = "div">({
+  as: TagComponent = "div",
   children,
   className,
   translateX = 0,
@@ -110,7 +110,7 @@ export const CardItem = ({
   rotateZ = 0,
   ...rest
 }: {
-  as?: React.ElementType;
+  as?: Tag;
   children: React.ReactNode;
   className?: string;
   translateX?: number | string;
@@ -137,13 +137,13 @@ export const CardItem = ({
   }, [isMouseEntered, handleAnimations]);
 
   return (
-    <Tag
+    <TagComponent
       ref={ref}
       className={cn("w-fit transition duration-200 ease-linear", className)}
       {...rest}
     >
       {children}
-    </Tag>
+    </TagComponent>
   );
 };
 
