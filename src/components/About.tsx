@@ -25,15 +25,17 @@ export default function Hero() {
         >
           <div className="space-y-2">
             <h2 className="text-xl sm:text-2xl text-white font-medium">Hello, It&apos;s Me</h2>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">John Wick</h1>
-            <p className="text-xl sm:text-2xl lg:text-3xl text-blue-800">
-              And I&apos;m a <span className="text-blue-800 font-medium">Frontend Developer</span>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">Kaviyarasan</h1>
+            <p className="text-xl sm:text-2xl lg:text-3xl text-white">
+              And I&apos;m a <span className="text-blue-800 font-medium">Full Stack Web Developer</span>
             </p>
           </div>
 
           <p className="text-gray-400 max-w-lg mx-auto lg:mx-0">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusantium, ab autem repellat reiciendis ipsam
-            perspiciatis.
+          As a Full Stack Developer, I am eager to continue learning and enhancing my skills in a dynamic environment that encourages
+professional growth. I aim to contribute high-quality work while leveraging my skills and knowledge to support the team and the
+organization’s goals. I am seeking opportunities to further develop my expertise in software development and contribute to impactful
+projects 
           </p>
 
           <div className="flex gap-4 justify-center lg:justify-start">

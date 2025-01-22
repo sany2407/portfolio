@@ -8,7 +8,7 @@ const Header: React.FC = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const navigationLinks = ['Home', 'About', 'Expertise', 'Projects', 'Experience', 'Contact'];
+  const navigationLinks = ['About',  'Projects', 'Experience','Tools', 'Contact'];
 
   return (
     <header id="home" className="fixed w-full top-0 z-50 bg-neutral-900/90 backdrop-blur-sm shadow-lg transition-all duration-300 ease-in-out">
@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <div className="flex-shrink-0 group">
             <span className="text-white text-xl font-bold relative overflow-hidden">
               <span className="inline-block transform transition-transform duration-300 group-hover:scale-110">
-                DevPortfolio
+                Kaviyarasan G
               </span>
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
             </span>

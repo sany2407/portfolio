@@ -4,12 +4,12 @@ import { Timeline } from "@/components/ui/timeline";
 const Experience = () => {
   const data = [
     {
-      title: "2023 - Present",
+      title: "Aug 2024 - Present",
       content: (
         <div>
           <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-2">Senior Full Stack Developer</h3>
-            <h4 className="text-blue-400 mb-4">Tech Innovators Inc.</h4>
+            <h3 className="text-2xl font-bold text-white mb-2">Junior Software Associate</h3>
+            <h4 className="text-blue-400 mb-4">SNS iHUB</h4>
             <p className="text-neutral-300 text-sm mb-6">
               Led the development of scalable web applications and mentored junior developers while implementing best practices and modern technologies.
             </p>
@@ -99,7 +99,7 @@ const Experience = () => {
   ];
 
   return (
-    <div className="w-full">
+    <div className="w-full" id="experience">
       <Timeline data={data} />
     </div>
   );
