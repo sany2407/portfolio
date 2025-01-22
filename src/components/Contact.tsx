@@ -26,17 +26,17 @@ const Contact: React.FC = () => {
 
     try {
       const result = await emailjs.send(
-        'service_dokblya', // EmailJS service ID
-        'template_dmzxikk', // EmailJS template ID
+        'service_xt589xk', // EmailJS service ID
+        'template_553f6wd', // EmailJS template ID
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: 'Sany A', // Your name
+          to_name: 'Kaviyarasan G', // Your name
           reply_to: formData.email,
         },
-        '80GYeR19GU21Uqv4S' // EmailJS public key
+        'eSIc4G4x0YZoVGydC' // EmailJS public key
       );
 
       if (result.status === 200) {
@@ -175,7 +175,7 @@ const Contact: React.FC = () => {
                   <div className="ml-4">
                     <h3 className="text-xl font-bold text-white mb-2">Email</h3>
                     <a href="mailto:contact@example.com" className="text-gray-400 hover:text-blue-500">
-                      contact@example.com
+                      kavikarpagam6@gmail.com
                     </a>
                   </div>
                 </div>
@@ -207,7 +207,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-xl font-bold text-white mb-2">Location</h3>
-                    <p className="text-gray-400">San Francisco, CA</p>
+                    <p className="text-gray-400">Coimbatore, India</p>
                   </div>
                 </div>
 
@@ -233,9 +233,9 @@ const Contact: React.FC = () => {
                   <div className="ml-4">
                     <h3 className="text-xl font-bold text-white mb-2">Social Media</h3>
                     <div className="flex space-x-4">
-                      <a href="#" className="text-gray-400 hover:text-blue-500">GitHub</a>
-                      <a href="#" className="text-gray-400 hover:text-blue-500">LinkedIn</a>
-                      <a href="#" className="text-gray-400 hover:text-blue-500">Twitter</a>
+                      <a target="_blank" href="https://github.com/kaviyarasan2865" className="text-gray-400 hover:text-blue-500">GitHub</a>
+                      <a target="_blank" href="https://www.linkedin.com/in/kaviyarasan--g/" className="text-gray-400 hover:text-blue-500">LinkedIn</a>
+                      {/* <a href="#" className="text-gray-400 hover:text-blue-500">Twitter</a> */}
                     </div>
                   </div>
                 </div>

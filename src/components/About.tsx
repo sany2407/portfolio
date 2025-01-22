@@ -81,8 +81,8 @@ projects
                 <svg viewBox="0 0 100 100" className="w-full h-full">
                   <defs>
                     <linearGradient id="hexagonGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                      <stop offset="0%" style={{ stopColor: '#1e3a8a', stopOpacity: 0.2 }} />
-                      <stop offset="100%" style={{ stopColor: '#1e40af', stopOpacity: 0.3 }} />
+                      <stop offset="0%" style={{ stopColor: '#ffff', stopOpacity: 0.3 }} />
+                      <stop offset="100%" style={{ stopColor: '#ffff', stopOpacity: 0.3 }} />
                     </linearGradient>
                   </defs>
                   <polygon
