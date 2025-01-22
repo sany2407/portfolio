@@ -47,6 +47,7 @@ const Contact: React.FC = () => {
         setFormData({ name: '', email: '', subject: '', message: '' });
       }
     } catch (error) {
+      console.error(error);
       setStatus({
         type: 'error',
         message: 'Failed to send message. Please try again later.',

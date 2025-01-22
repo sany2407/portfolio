@@ -2,12 +2,14 @@
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
-export const ContainerScroll = ({
-  titleComponent,
-  children,
-}: {
+interface ContainerScrollProps {
   titleComponent: string | React.ReactNode;
   children: React.ReactNode;
+}
+
+export const ContainerScroll: React.FC<ContainerScrollProps> = ({
+  titleComponent,
+  children,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -54,7 +56,12 @@ export const ContainerScroll = ({
   );
 };
 
-export const Header = ({ translate, titleComponent }: any) => {
+interface HeaderProps {
+  translate: number;
+  titleComponent: React.ReactNode;
+}
+
+export const Header: React.FC<HeaderProps> = ({ translate, titleComponent }) => {
   return (
     <motion.div
       style={{
