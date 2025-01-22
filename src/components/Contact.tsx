@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import emailjs from '@emailjs/browser';
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -7,30 +8,63 @@ const Contact: React.FC = () => {
     subject: '',
     message: '',
   });
+  const [status, setStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Add form submission logic here, e.g., API call
-    alert('Form submitted! This is a demo submission.');
-    setFormData({ name: '', email: '', subject: '', message: '' }); // Reset form after submission
+    setIsSubmitting(true);
+    setStatus({ type: null, message: '' });
+
+    try {
+      const result = await emailjs.send(
+        'service_dokblya', // EmailJS service ID
+        'template_dmzxikk', // EmailJS template ID
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_name: 'Sany A', // Your name
+          reply_to: formData.email,
+        },
+        '80GYeR19GU21Uqv4S' // EmailJS public key
+      );
+
+      if (result.status === 200) {
+        setStatus({
+          type: 'success',
+          message: 'Message sent successfully! We will get back to you soon.',
+        });
+        setFormData({ name: '', email: '', subject: '', message: '' });
+      }
+    } catch (error) {
+      setStatus({
+        type: 'error',
+        message: 'Failed to send message. Please try again later.',
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <section id="contact" className="py-20 bg-neutral-900">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-white mb-4">Get In Touch</h2>
           <p className="text-gray-400 text-xl">Let's discuss your next project</p>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Contact Form */}
           <div>
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
@@ -93,18 +127,30 @@ const Contact: React.FC = () => {
                   placeholder="Your message here..."
                 />
               </div>
+
+              {status.type && (
+                <div
+                  className={`p-4 rounded-lg ${
+                    status.type === 'success' ? 'bg-green-100 text-green-700' : 'bg-red-100 text-red-700'
+                  }`}
+                >
+                  {status.message}
+                </div>
+              )}
+
               <button
                 type="submit"
-                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                disabled={isSubmitting}
+                className="w-full px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:bg-blue-400"
               >
-                Send Message
+                {isSubmitting ? 'Sending...' : 'Send Message'}
               </button>
             </form>
           </div>
 
-          {/* Contact Info */}
+          {/* Contact Info section remains the same */}
           <div>
-            <div className="bg-neutral-800 p-8 rounded-xl border border-neutral-700">
+          <div className="bg-neutral-800 p-8 rounded-xl border border-neutral-700">
               <div className="space-y-8">
                 {/* Email */}
                 <div className="flex items-start">
