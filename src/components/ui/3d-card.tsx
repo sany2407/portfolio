@@ -119,7 +119,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-} & React.HTMLAttributes<HTMLElement>) => {
+} & (React.HTMLAttributes<HTMLElement> & (Tag extends "a" ? React.AnchorHTMLAttributes<HTMLAnchorElement> : { [key: string]: unknown }))) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
 
