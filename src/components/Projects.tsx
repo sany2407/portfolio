@@ -44,7 +44,7 @@ const Projects: React.FC = () => {
               <div className="flex justify-between items-center mt-6">
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://github.com/Sanylearn"
                   target="_blank"
                   className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
@@ -53,7 +53,7 @@ const Projects: React.FC = () => {
                 </CardItem>
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://example.com/demo"
                   target="_blank"
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
@@ -92,7 +92,7 @@ const Projects: React.FC = () => {
               <div className="flex justify-between items-center mt-6">
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://github.com"
                   target="_blank"
                   className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
@@ -101,7 +101,7 @@ const Projects: React.FC = () => {
                 </CardItem>
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://example.com/demo"
                   target="_blank"
                   className="px-4 py-2 rounded-xl  bg-black dark:bg-white dark:text-black text-white text-xs font-bold "
@@ -140,7 +140,7 @@ const Projects: React.FC = () => {
               <div className="flex justify-between items-center mt-6">
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://github.com"
                   target="_blank"
                   className="px-4 py-2 rounded-xl text-sm font-bold dark:text-white text-white hover:text-blue-400"
@@ -149,7 +149,7 @@ const Projects: React.FC = () => {
                 </CardItem>
                 <CardItem
                   translateZ={20}
-                  as={Link}
+                  as="a"
                   href="https://example.com/demo"
                   target="_blank"
                   className="px-4 py-2 rounded-xl bg-black dark:bg-white dark:text-black text-white text-xs font-bold"
