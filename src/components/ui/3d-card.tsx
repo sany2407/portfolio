@@ -18,10 +18,12 @@ export const CardContainer = ({
   children,
   className,
   containerClassName,
+  style,
 }: {
   children?: React.ReactNode;
   className?: string;
   containerClassName?: string;
+  style?: React.CSSProperties;
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [isMouseEntered, setIsMouseEntered] = useState(false);
@@ -54,6 +56,7 @@ export const CardContainer = ({
         )}
         style={{
           perspective: "1000px",
+          ...style,
         }}
       >
         <div
@@ -116,7 +119,7 @@ export const CardItem = ({
   rotateX?: number | string;
   rotateY?: number | string;
   rotateZ?: number | string;
-  [key: string]: string | number | boolean | React.ReactNode;
+  [key: string]: any;
 }) => {
   const ref = useRef<HTMLDivElement>(null);
   const [isMouseEntered] = useMouseEnter();
