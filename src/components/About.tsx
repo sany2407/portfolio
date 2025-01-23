@@ -2,15 +2,14 @@
 
 import { motion } from "framer-motion"
 import Image from "next/image"
-import { Facebook, Twitter, Youtube, Linkedin } from "lucide-react"
+import { Twitter, Linkedin, Github } from "lucide-react"
 import me from '../../public/assets/me.png'
 
 export default function Hero() {
   const socialLinks = [
-    { icon: Facebook, href: "#" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/kaviyarasan--g/" },
     { icon: Twitter, href: "#" },
-    { icon: Youtube, href: "#" },
-    { icon: Linkedin, href: "#" },
+    {icon:Github, href: "https://github.com/kaviyarasan2865" }
   ]
 
   return (
@@ -34,7 +33,7 @@ export default function Hero() {
           <p className="text-gray-400 max-w-lg mx-auto lg:mx-0">
           As a Full Stack Developer, I am eager to continue learning and enhancing my skills in a dynamic environment that encourages
 professional growth. I aim to contribute high-quality work while leveraging my skills and knowledge to support the team and the
-organization’s goals. I am seeking opportunities to further develop my expertise in software development and contribute to impactful
+organization&apos;s goals. I am seeking opportunities to further develop my expertise in software development and contribute to impactful
 projects 
           </p>
 
@@ -43,6 +42,7 @@ projects
               <motion.a
                 key={index}
                 href={social.href}
+                target="_blank"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 * index }}
@@ -52,15 +52,20 @@ projects
               </motion.a>
             ))}
           </div>
-
-          <motion.button
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
-            className="px-6 py-2 text-blue-800 border-2 border-blue-800 rounded-md hover:bg-blue-800 hover:text-white transition-colors duration-300 font-medium"
+<br/>
+          <motion.a
+            href="/MyResume.pdf"
+            download
           >
-            Download CV
-          </motion.button>
+            <motion.button
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.8 }}
+              className="px-6 py-2 text-blue-800 border-2 border-blue-800 rounded-md hover:bg-blue-800 hover:text-white transition-colors duration-300 font-medium"
+            >
+              Download CV
+            </motion.button>
+          </motion.a>
         </motion.div>
 
         {/* Right Content - Hexagon Image */}

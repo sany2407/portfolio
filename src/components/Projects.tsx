@@ -3,7 +3,7 @@
 import Image from "next/image";
 import React from "react";
 import { CardBody, CardContainer, CardItem } from "../components/ui/3d-card";
-import Link from "next/link";
+// import Link from "next/link";
 import scene from "../../public/assets/scene.png";
 
 const Projects: React.FC = () => {
@@ -208,7 +208,7 @@ Developed a web application enabling farmers to list and manage their products, 
           </CardContainer>
         </div>
 
-        <div className="text-center mt-1">
+        {/* <div className="text-center mt-1">
           <Link
             href="/projects"
             className="inline-flex items-center px-6 py-3 border border-blue-500 text-blue-500 rounded-lg hover:bg-blue-500 hover:text-white transition-colors"
@@ -228,7 +228,7 @@ Developed a web application enabling farmers to list and manage their products, 
               />
             </svg>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );
