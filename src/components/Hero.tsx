@@ -8,8 +8,8 @@ const Hero: React.FC = () => {
       <ContainerScroll
         titleComponent={
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-20">
-            Full Stack Developer <span className="text-blue-500">&amp;</span>{" "}
-            Low Code Expert
+            AI Full-Stack Developer <span className="text-blue-500">&amp;</span>{" "}
+            Agentic Systems
           </h1>
         }
       >
@@ -27,8 +27,8 @@ const Hero: React.FC = () => {
           <div className="h-full pt-12 px-8 flex flex-col justify-center items-center">
             <div className="text-center max-w-2xl mx-auto">
               <p className="text-xl text-gray-800 mb-8">
-                Specialized in MERN Stack, Next.js, and building efficient
-                low-code solutions.
+                I build LLM-powered applications, RAG systems, autonomous agents, and AI features,
+                productionized with Next.js and the MERN stack.
               </p>
               <div className="flex gap-4 justify-center">
                 <a
@@ -49,10 +49,10 @@ const Hero: React.FC = () => {
               <pre className="text-gray-300 bg-[#1E1E1E] p-6 rounded-lg">
                 <code>
                   {`const developer = {
-  name: "Kaviyarasan G",
-  skills: ["Web Development"],
-  passion: "Building scalable solutions",
-  current: "Full Stack Developer",
+  name: "Sany A",
+  skills: ["LLMs", "RAG", "Agents", "Next.js", "MERN"],
+  passion: "Shipping AI products end-to-end",
+  current: "AI Full-Stack Developer",
 };`}
                 </code>
               </pre>

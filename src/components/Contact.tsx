@@ -1,5 +1,34 @@
 import React, { useState } from 'react';
 import emailjs from '@emailjs/browser';
+import Link from 'next/link';
+
+type ErrorWithProperties = {
+  message?: unknown;
+  text?: unknown;
+  status?: unknown;
+  type?: unknown;
+  target?: { status?: unknown };
+};
+
+const toReadableError = (e: unknown): string => {
+  try {
+    if (typeof e === 'string') return e;
+    if (e && typeof e === 'object') {
+      const err = e as ErrorWithProperties;
+      if (err.message) return String(err.message);
+      if (err.text) return String(err.text);
+      if (err.status) return `status ${err.status}${err.text ? `: ${String(err.text)}` : ''}`;
+      if (err.type === 'error' && err.target) {
+        const st = err.target?.status;
+        return `network error${st ? ` (status ${st})` : ''}`;
+      }
+      return JSON.stringify(err);
+    }
+    return 'Unknown error';
+  } catch {
+    return 'Unknown error';
+  }
+};
 
 const Contact: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -25,32 +54,53 @@ const Contact: React.FC = () => {
     setStatus({ type: null, message: '' });
 
     try {
-      const result = await emailjs.send(
-        'service_xt589xk', // EmailJS service ID
-        'template_553f6wd', // EmailJS template ID
+      const serviceId = process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID;
+      const templateId = process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID;
+      const publicKey = process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY;
+
+      if (!serviceId || !templateId || !publicKey) {
+        setStatus({ type: 'error', message: 'Email service not configured. Please try again later.' });
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Ensure EmailJS is initialized with the public key (safe for client usage)
+      try {
+        emailjs.init({ publicKey });
+      } catch {
+        // init is idempotent; ignore if SDK already initialized
+      }
+
+      const { status, text } = await emailjs.send(
+        serviceId,
+        templateId,
         {
           from_name: formData.name,
           from_email: formData.email,
           subject: formData.subject,
           message: formData.message,
-          to_name: 'Kaviyarasan G', // Your name
+          to_name: 'Sany A', // Your name
           reply_to: formData.email,
-        },
-        'eSIc4G4x0YZoVGydC' // EmailJS public key
+        }
       );
 
-      if (result.status === 200) {
+      if (status === 200) {
         setStatus({
           type: 'success',
           message: 'Message sent successfully! We will get back to you soon.',
         });
         setFormData({ name: '', email: '', subject: '', message: '' });
+      } else {
+        throw new Error(`Email service responded with status ${status}${text ? `: ${text}` : ''}`);
       }
-    } catch (error) {
-      console.error(error);
+    } catch (error: unknown) {
+      const details = toReadableError(error);
+      if (process.env.NODE_ENV !== 'production') {
+        console.warn('EmailJS send error:', details);
+      }
       setStatus({
         type: 'error',
-        message: 'Failed to send message. Please try again later.',
+        message: `Failed to send message. ${details}. Please check your email service configuration and try again.`,
       });
     } finally {
       setIsSubmitting(false);
@@ -174,8 +224,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div className="ml-4">
                     <h3 className="text-xl font-bold text-white mb-2">Email</h3>
-                    <a href="mailto:contact@example.com" className="text-gray-400 hover:text-blue-500">
-                      kavikarpagam6@gmail.com
+                    <a href="mailto:sanyworks08@gmail.com" className="text-gray-400 hover:text-blue-500">
+                      sanyworks08@gmail.com
                     </a>
                   </div>
                 </div>
@@ -233,10 +283,8 @@ const Contact: React.FC = () => {
                   <div className="ml-4">
                     <h3 className="text-xl font-bold text-white mb-2">Social Media</h3>
                     <div className="flex space-x-4">
-                      <a target="_blank" href="https://github.com/kaviyarasan2865" className="text-gray-400 hover:text-blue-500">GitHub</a>
-                      <a target="_blank" href="https://www.linkedin.com/in/kaviyarasan--g/" className="text-gray-400 hover:text-blue-500">LinkedIn</a>
-                      {/* <a href="#" className="text-gray-400 hover:text-blue-500">Twitter</a> */}
-                    </div>
+                      <Link target="_blank" href="https://github.com/sany2407" className="text-gray-400 hover:text-blue-500">GitHub</Link>
+                      <Link target="_blank" href="https://www.linkedin.com/in/asany" className="text-gray-400 hover:text-blue-500">LinkedIn</Link>                    </div>
                   </div>
                 </div>
               </div>

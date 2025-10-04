@@ -9,32 +9,34 @@ import type { StaticImageData } from "next/image"
 
 // Import images with exact names as provided
 import nextjs from "../../public/assets/nextjs.png"
-import laravel from "../../public/assets/Laravel.png"
 import mysql from "../../public/assets/MySQL-Logo.png"
 import vercel from "../../public/assets/apple-touch-icon-256x256.png"
-import clickup from "../../public/assets/clickup.png"
 import expressjs from "../../public/assets/expressjs.png"
 import figma from "../../public/assets/figma.png"
-import flutterflow from "../../public/assets/flutterflow.png"
 import git from "../../public/assets/git.png"
 import github from "../../public/assets/github.png"
 import mongodb from "../../public/assets/mongodb.png"
-import miro from "../../public/assets/miro.png"
 import nodejs from "../../public/assets/nodejs-logo.png"
 import postman from "../../public/assets/postman.png"
 import slack from "../../public/assets/slack.png"
 import redux from "../../public/assets/redux.png"
 import swagger from "../../public/assets/swagger.png"
-import tailwind from "../../public/assets/tailwind-css.png"
 import reactjs from "../../public/assets/teactjs.png"
-import trello from "../../public/assets/trello.png"
 import ts from "../../public/assets/ts.png"
 import vsCode from "../../public/assets/vs-code.png"
-import xampp from "../../public/assets/xampp.png"
+import jira from "../../public/assets/jira.png"
+import docker from "../../public/assets/docker.png"
+import k8s from "../../public/assets/k8s.png"
+import aws from "../../public/assets/aws.png"
+import python from "../../public/assets/python.png"
+import linux from "../../public/assets/linux.png"
+import langgraph from "../../public/assets/langgraph.png"
+import crewai from "../../public/assets/crew.png"
+
 
 interface Item {
   name: string
-  icon: StaticImageData
+  icon?: StaticImageData
   category: string
 }
 
@@ -44,27 +46,28 @@ const tools: Item[] = [
   { name: "GitHub", icon: github, category: "Version Control" },
   { name: "Postman", icon: postman, category: "API Testing" },
   { name: "Swagger", icon: swagger, category: "API Documentation" },
-  { name: "Trello", icon: trello, category: "Project Management" },
-  { name: "ClickUp", icon: clickup, category: "Project Management" },
-  { name: "Miro", icon: miro, category: "Collaboration" },
+  { name: "Jira", icon: jira, category: "Project Management" },
   { name: "Slack", icon: slack, category: "Communication" },
   { name: "Figma", icon: figma, category: "Design" },
   { name: "Vercel", icon: vercel, category: "Deployment" },
-  { name: "XAMPP", icon: xampp, category: "Development" },
+  { name: "Docker", icon: docker, category: "Deployment" },
+  { name: "Kubernetes", icon: k8s, category: "Deployment" },
+  { name: "AWS", icon: aws, category: "Cloud" },
 ]
 
 const languages: Item[] = [
   { name: "React.js", icon: reactjs, category: "Frontend" },
   { name: "Next.js", icon: nextjs, category: "Frontend" },
   { name: "TypeScript", icon: ts, category: "Language" },
-  { name: "Tailwind CSS", icon: tailwind, category: "CSS" },
+  { name: "Python", icon: python, category: "Language" },
   { name: "Redux", icon: redux, category: "State Management" },
   { name: "Node.js", icon: nodejs, category: "Backend" },
   { name: "Express.js", icon: expressjs, category: "Backend" },
-  { name: "Laravel", icon: laravel, category: "Backend" },
+  { name: "Linux", icon: linux, category: "OS/DevOps" },
   { name: "MongoDB", icon: mongodb, category: "Database" },
   { name: "MySQL", icon: mysql, category: "Database" },
-  { name: "FlutterFlow", icon: flutterflow, category: "Mobile Development" },
+  { name: "LangGraph", icon: langgraph, category: "Orchestration" },
+  { name: "CrewAI", icon: crewai, category: "Agents/Orchestration" },
 ]
 
 const ItemGrid: React.FC<{ items: Item[]; title: string }> = ({ items, title }) => {
@@ -177,15 +180,15 @@ const Tools: React.FC = () => {
     <section id="tools" className="py-20 bg-neutral-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h1 className="text-5xl font-bold text-white mb-4">Tools & Technologies</h1>
-          <p className="text-gray-400 text-xl">Crafting digital experiences with these powerful tools and languages</p>
+          <h1 className="text-5xl font-bold text-white mb-4">Tools, Frameworks & AI Stack</h1>
+          <p className="text-gray-400 text-xl">Building AI and web experiences with these tools and frameworks</p>
         </div>
 
         <ItemGrid items={tools} title="Development Tools" />
         <ItemGrid items={languages} title="Languages & Frameworks" />
 
         <div className="mt-16 text-center">
-          <p className="text-gray-400">Continuously expanding my toolkit to stay at the forefront of web development</p>
+          <p className="text-gray-400">Continuously expanding my toolkit to stay at the forefront of AI and Software development</p>
         </div>
       </div>
     </section>

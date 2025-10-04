@@ -4,207 +4,116 @@ import { Timeline } from "@/components/ui/timeline";
 const Experience = () => {
   const data = [
     {
-      title: "Aug 2024 - Present",
+      title: "Jul 2024 - Present",
       content: (
         <div>
           <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Junior Software Associate
-            </h3>
-            <h4 className="text-blue-400 mb-4">SNS iHUB</h4>
+            <h3 className="text-2xl font-bold text-white mb-2">Software Associate</h3>
+            <h4 className="text-blue-400 mb-4">SNS Innovation Hub — Coimbatore</h4>
             <p className="text-neutral-300 text-sm mb-6">
-              Developed scalable, high-performance web apps with Next.js and
-              MERN, optimizing SEO, APIs, CI/CD, and user experience.{" "}
+              Building AI-powered employee engagement platform (Nomantify), secure APIs, analytics pipelines, and automation with modern web stack.
             </p>
             <div className="space-y-2 text-neutral-400 text-sm">
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                  {" "}
-                  Designed and developed scalable web applications using Next.js
-                  and the MERN stack, delivering optimized, high- performance
-                  solutions tailored to business needs.{" "}
+                  Developed <b>Nomantify</b>, an AI-powered platform for employee engagement, using <b>Next.js</b>, React, and Node.js, transforming user feedback into actionable insights.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                  Built server-side rendered and static applications to improve
-                  SEO and reduce load times, while implementing secure
-                  authentication and robust RESTful/GraphQL APIs for seamless
-                  front-end and back-end integration.
+                  Designed and integrated <b>secure, scalable REST APIs</b>, improving backend maintainability and performance.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                  Collaborated with cross-functional teams to define
-                  requirements, write clean, reusable code, and debug full-
-                  stack issues. Enhanced database performance with optimized
-                  queries and schemas, and automated deployment pipelines using
-                  CI/CD tools like GitHub Actions and Docker to ensure efficient
-                  releases.
+                  Collaborated closely with product managers and designers to build and iterate on key features based on user feedback.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                Regularly monitored application performance and applied
-                optimizations to deliver exceptional user experiences.
+                  Integrated <b>AI-based analytics pipelines</b>, visualizing engagement metrics in real time.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>
+                  Worked on <b>calendar and messaging automation tools</b>, including email and YouTube comment response automation.
+                </span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-blue-500">•</span>
+                <span>
+                  Improved deployment speed using <b>CI/CD pipelines (Docker + GitHub Actions)</b> and optimized <b>PostgreSQL</b> and <b>MongoDB</b> queries.
                 </span>
               </div>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              React
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Next.js
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Node.js
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              MongoDB
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Express.js
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-            RESTful API&apos;s 
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-            Git/GitHub
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Postman
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Swagger
-            </span>
-          </div>
-
-        </div>
-      ),
-    },
-    {
-      title: "Dec 2023 - Jun 2024",
-      content: (
-        <div>
-          <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-2">
-            Software Developer Intern
-            </h3>
-            <h4 className="text-blue-400 mb-4">Mobility Intelligence</h4>
-            <p className="text-neutral-300 text-sm mb-6">
-            Developed and maintained web applications, enhancing functionality, integrating data, generating dynamic outputs, testing APIs, and improving user experience.
-            </p>
-            <div className="space-y-2 text-neutral-400 text-sm">
-              <div className="flex items-start gap-2">
-                <span className="text-blue-500">•</span>
-                <span>
-                Developed and maintained web applications using Laravel,
-Ajax, and jQuery, enhancing the user interface and ensuring
-seamless functionality for various features. 
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-500">•</span>
-                <span>
-                Integrated Excel data into web applications , generated
-dynamic PDFs and invoices, and used Swagger and Postman
-to perform API testing for reliability and performance. 
-                </span>
-              </div>
-              <div className="flex items-start gap-2">
-                <span className="text-blue-500">•</span>
-                <span>
-                Implemented version control using Git , integrated email
-functionality via APIs, and enabled social media
-authentication with Laravel Socialite to enhance user
-registration and login experiences.
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="mt-8 flex flex-wrap gap-2">
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Laravel
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              AJAX
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              MySQL
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              JQuery
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Postman
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Swagger
-            </span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Next.js</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">React</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Node.js</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">REST APIs</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">PostgreSQL</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">MongoDB</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">CI/CD</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Docker</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">GitHub Actions</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Analytics</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Automation</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Email API</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">YouTube API</span>
           </div>
         </div>
       ),
     },
     {
-      title: "March 2021 - May 2023",
+      title: "Feb 2024 - May 2024",
       content: (
         <div>
           <div className="bg-neutral-800/50 rounded-xl p-6 border border-neutral-700/50 hover:border-blue-500/50 transition-all">
-            <h3 className="text-2xl font-bold text-white mb-2">
-              Web Developer Intern
-            </h3>
-            <h4 className="text-blue-400 mb-4">Techvolt Software pvt.ltd</h4>
+            <h3 className="text-2xl font-bold text-white mb-2">Web Developer Intern</h3>
+            <h4 className="text-blue-400 mb-4">Accent Techno Soft — Coimbatore</h4>
             <p className="text-neutral-300 text-sm mb-6">
-            Completed a web development internship, gaining experience in building and deploying dynamic web applications.
+              Contributed to front-end builds, API integrations, and end-to-end debugging for smooth application functionality.
             </p>
             <div className="space-y-2 text-neutral-400 text-sm">
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                Web Application Development: Gained hands-on experience in designing and developing dynamic, user-friendly web applications, focusing on front-end and back-end integration.
+                  Contributed to front-end development using <b>HTML</b>, <b>CSS</b>, and <b>JavaScript</b>, and gained hands-on experience with frameworks like <b>React</b>.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                Database Management: Worked with databases to store, manage, and retrieve data efficiently, ensuring seamless application functionality.
+                  Assisted in creating and integrating <b>RESTful APIs</b> for dynamic data rendering and implemented features that improved user functionality and engagement.
                 </span>
               </div>
               <div className="flex items-start gap-2">
                 <span className="text-blue-500">•</span>
                 <span>
-                Problem-Solving and Deployment: Developed and deployed web solutions while troubleshooting issues to enhance performance and user experience.
+                  Debugged and resolved front-end and back-end issues, ensuring smooth application functionality.
                 </span>
               </div>
             </div>
           </div>
 
           <div className="mt-8 flex flex-wrap gap-2">
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              JavaScript
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Bootstrap
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              MySQL
-            </span>
-            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">
-              Flask
-            </span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">HTML</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">CSS</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">JavaScript</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">React</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">REST APIs</span>
+            <span className="px-3 py-1 bg-neutral-800/50 text-blue-400 text-sm rounded-full border border-neutral-700/50">Debugging</span>
           </div>
-
         </div>
       ),
-    }
+    },
   ];
 
   return (

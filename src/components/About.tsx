@@ -7,9 +7,9 @@ import me from '../../public/assets/me.png'
 
 export default function Hero() {
   const socialLinks = [
-    { icon: Linkedin, href: "https://www.linkedin.com/in/kaviyarasan--g/" },
+    { icon: Linkedin, href: "#" },
     { icon: Twitter, href: "#" },
-    {icon:Github, href: "https://github.com/kaviyarasan2865" }
+    { icon: Github, href: "https://github.com/sany2407" },
   ]
 
   return (
@@ -24,17 +24,16 @@ export default function Hero() {
         >
           <div className="space-y-2">
             <h2 className="text-xl sm:text-2xl text-white font-medium">Hello, It&apos;s Me</h2>
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">Kaviyarasan</h1>
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-white">Sany A</h1>
             <p className="text-xl sm:text-2xl lg:text-3xl text-white">
-              And I&apos;m a <span className="text-blue-800 font-medium">Full Stack Web Developer</span>
+              And I&apos;m an <span className="text-blue-800 font-medium">AI Full-Stack Developer</span>
             </p>
           </div>
 
           <p className="text-gray-400 max-w-lg mx-auto lg:mx-0">
-          As a Full Stack Developer, I am eager to continue learning and enhancing my skills in a dynamic environment that encourages
-professional growth. I aim to contribute high-quality work while leveraging my skills and knowledge to support the team and the
-organization&apos;s goals. I am seeking opportunities to further develop my expertise in software development and contribute to impactful
-projects 
+          I build AI-enabled products end-to-end AI apps, RAG pipelines, and agentic workflows, grounded in solid web foundations.
+I work with LangChain/LangGraph, vector databases, and providers like OpenAI, and ship with Next.js, Node, and robust APIs.
+I’m focused on reliability, evaluation, and DX so AI features are useful, safe, and fast.
           </p>
 
           <div className="flex gap-4 justify-center lg:justify-start">
@@ -54,7 +53,7 @@ projects
           </div>
 <br/>
           <motion.a
-            href="/MyResume.pdf"
+            href="/My Resume.pdf"
             download
           >
             <motion.button
@@ -63,7 +62,7 @@ projects
               transition={{ delay: 0.8 }}
               className="px-6 py-2 text-blue-800 border-2 border-blue-800 rounded-md hover:bg-blue-800 hover:text-white transition-colors duration-300 font-medium"
             >
-              Download CV
+              Download Resume
             </motion.button>
           </motion.a>
         </motion.div>

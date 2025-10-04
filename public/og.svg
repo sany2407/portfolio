@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0ea5e9"/>
+      <stop offset="100%" stop-color="#1e293b"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#g)"/>
+  <g fill="#ffffff" font-family="Inter, Arial, sans-serif">
+    <text x="80" y="170" font-size="64" font-weight="700">Sany A</text>
+    <text x="80" y="240" font-size="36" opacity="0.9">Full Stack Developer • MERN • Next.js</text>
+    <text x="80" y="290" font-size="32" opacity="0.8">Agentic AI: LangGraph · LangChain · CrewAI · AutoGen</text>
+  </g>
+  <rect x="80" y="340" width="1040" height="200" rx="16" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)"/>
+  <text x="110" y="400" font-size="28" fill="#ffffff" opacity="0.92" font-family="Inter, Arial, sans-serif">Projects & Case Studies</text>
+  <text x="110" y="450" font-size="20" fill="#ffffff" opacity="0.8" font-family="Inter, Arial, sans-serif">Agentic orchestration • Next.js apps • MERN systems</text>
+</svg>

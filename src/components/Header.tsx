@@ -18,7 +18,7 @@ const Header: React.FC = () => {
           <div className="flex-shrink-0 group">
             <span className="text-blue-700 text-xl font-bold relative overflow-hidden">
               <span className="inline-block transform transition-transform duration-300 group-hover:scale-110">
-                KAVIYARASAN G
+                Sany A
               </span>
             </span>
           </div>
