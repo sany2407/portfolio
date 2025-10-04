@@ -62,7 +62,14 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
         )}
 
         <div className="prose prose-invert max-w-none">
-          <p className="text-xl">{p.summary}</p>
+          <p className="text-xl text-gray-300 mb-6">{p.summary}</p>
+
+          {p.description && (
+            <div className="mb-6">
+              <h2 className='text-xl font-bold text-gray-300 mb-2'>About This Project</h2>
+              <p className="text-gray-300">{p.description}</p>
+            </div>
+          )}
 
           <div className="flex flex-wrap gap-2 my-4">
             {p.stack.map(tech => (
@@ -72,7 +79,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           {p.highlights && p.highlights.length > 0 && (
             <section>
-              <h2>Highlights</h2>
+              <h2 className='text-xl font-bold text-gray-300 mb-2'>Highlights</h2>
               <ul>
                 {p.highlights.map(h => <li key={h}>{h}</li>)}
               </ul>
@@ -81,10 +88,10 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           {p.orchestration && (
             <section>
-              <h2>Agentic Orchestration</h2>
+              <h2 className='text-xl font-bold text-gray-300 mb-2'>Agentic Orchestration</h2>
               {p.orchestration.tools?.length ? (
                 <div>
-                  <h4>Tools Used</h4>
+                  <h4 className='text-xl font-bold text-gray-300 mb-2'>Tools Used</h4>
                   <ul>
                     {p.orchestration.tools.map(t => <li key={t}>{t}</li>)}
                   </ul>
@@ -92,7 +99,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               ) : null}
               {p.orchestration.flowHighlights?.length ? (
                 <div>
-                  <h4>Flow Highlights</h4>
+                  <h4 className='text-xl font-bold text-gray-300 mb-2'>Flow Highlights</h4>
                   <ul>
                     {p.orchestration.flowHighlights.map(f => <li key={f}>{f}</li>)}
                   </ul>
@@ -100,7 +107,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               ) : null}
               {p.orchestration.architectureDiagram && (
                 <div className="mt-4">
-                  <h4>Architecture</h4>
+                  <h4 className='text-xl font-bold text-gray-300 mb-2'>Architecture</h4>
                   <Image src={p.orchestration.architectureDiagram} alt="Architecture Diagram" width={1200} height={630} className="rounded-lg" />
                 </div>
               )}
@@ -109,7 +116,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
 
           {p.impact?.metrics && p.impact.metrics.length > 0 && (
             <section>
-              <h2>Impact</h2>
+              <h2 className='text-xl font-bold text-gray-300 mb-2'>Impact</h2>
               <ul>
                 {p.impact.metrics.map(m => (
                   <li key={m.label}><strong>{m.label}:</strong> {m.value}</li>
